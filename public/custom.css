@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+
+
+body {
+    overflow-y: scroll;
+}
+
+#game {
+
+    width: 360px;
+}
+
+.cell input {
+    display: inline-block;
+    float: left;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #ccc;
+}

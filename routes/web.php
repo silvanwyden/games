@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home');
 });
+
+// Task Routes
+Route::get('/sudoku', 'SudokuController@index');
