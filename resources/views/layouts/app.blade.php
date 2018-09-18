@@ -6,6 +6,8 @@
 
     <title>Games</title>
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -21,7 +23,6 @@
     <script type="text/javascript" src="/js/jquery.numpad.js"></script>
 
 
-
 </head>
 <body>
 
@@ -34,7 +35,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/">
+                    <div class="fa fa-gamepad"></div>
+                </a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
@@ -42,7 +45,7 @@
                     <li class="{{ Request::is( 'sudoku*') ? 'active' : '' }}">
                         <a href="/sudoku">Sudoko <span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a href="/">Solitär</a></li>
+                    <li><a href="/">next Game will come soon</a></li>
                 </ul>
             </div>
 
