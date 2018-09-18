@@ -14,7 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-    <link href="/custom.css" rel="stylesheet">
+
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <link href="/css/jquery.numpad.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery.numpad.js"></script>
+
 
 
 </head>
@@ -47,6 +52,25 @@
     <div class="container" role="main" style="margin-top: 50px;">
         @yield('content')
     </div>
+
+    <script type="text/javascript">
+        // Initialize the numpad
+
+        $.fn.numpad.defaults.gridTpl = '<table class="table modal-content"></table>';
+        $.fn.numpad.defaults.backgroundTpl = '<div class="modal-backdrop in"></div>';
+        $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control  input-lg" />';
+        $.fn.numpad.defaults.cellTpl = '<td style="border: 0px;"></td>';
+        $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-warning btn-lg"></button>';
+        $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn btn-lg" style="width: 100%;"></button>';
+
+
+        $('input').numpad({
+            buttonNumberTpl: '<button type="button" class="btn btn-warning btn-lg"></button>',
+            onChange: function(){
+                $('.done').click();
+            },
+        });
+    </script>
 
 </body>
 </html>
