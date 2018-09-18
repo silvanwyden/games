@@ -43,7 +43,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="{{ Request::is( 'sudoku*') ? 'active' : '' }}">
-                        <a href="/sudoku">Sudoko <span class="sr-only">(current)</span></a>
+                        <a href="/sudoku">Sudoku <span class="sr-only">(current)</span></a>
                     </li>
                     <li><a href="/">next Game will come soon</a></li>
                 </ul>
