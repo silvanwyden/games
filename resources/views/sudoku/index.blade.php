@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Sudoku')
 @section('content')
 
     <h1>Sudoku</h1>
