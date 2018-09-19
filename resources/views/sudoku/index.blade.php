@@ -48,7 +48,7 @@
                         @if ($temp2 > 0)
                             "{{ $temp2 }}" readonly class="readonly"
                          @else
-                             ""
+                            "" class="editable"
                          @endif
                              />
                     </div>
@@ -56,6 +56,11 @@
             @endforeach
 
         </div>
+
+
+        <div class="modal"><!-- Place at bottom of page --></div>
+
+        <div id="msg" class="alert alert-info" style="display: none;">Messagebox</div>
 
     </form>
 
@@ -76,7 +81,7 @@
                 url:'/sudoku-solve',
                 data: $('form').serialize(),
                 success:function(data){
-                    //$("#msg").html(data.msg);
+                    //$("#msg").html(data.msg).show();
                     alert(data.msg);
                 }
             });
@@ -85,8 +90,33 @@
 
         }
 
+
+        $body = $("body");
+        $(document).on({
+            ajaxStart: function() { $body.addClass("loading");    },
+            ajaxStop: function() { $body.removeClass("loading"); }
+        });
+
     </script>
 
 
+    <script type="text/javascript">
+        // Initialize the numpad
+
+        $.fn.numpad.defaults.gridTpl = '<table class="table modal-content"></table>';
+        $.fn.numpad.defaults.backgroundTpl = '<div class="modal-backdrop in"></div>';
+        $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control  input-lg" />';
+        $.fn.numpad.defaults.cellTpl = '<td style="border: 0px;"></td>';
+        $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-warning btn-lg"></button>';
+        $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn btn-lg" style="width: 100%;"></button>';
+
+
+        $('.editable').numpad({
+            buttonNumberTpl: '<button type="button" class="btn btn-warning btn-lg"></button>',
+            onChange: function(){
+                $('.done').click();
+            },
+        });
+    </script>
 
 @endsection
