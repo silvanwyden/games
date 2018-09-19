@@ -22,6 +22,10 @@
     <link href="/css/jquery.numpad.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery.numpad.js"></script>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
+
 
 </head>
 <body>
@@ -45,6 +49,7 @@
                     <li class="{{ Request::is( 'sudoku*') ? 'active' : '' }}">
                         <a href="/sudoku">Sudoku <span class="sr-only">(current)</span></a>
                     </li>
+                    <li><a href="/">next Game will come soon</a></li>
                 </ul>
             </div>
 

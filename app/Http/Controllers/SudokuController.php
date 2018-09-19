@@ -61,7 +61,8 @@ class SudokuController extends Controller
 
         //63-82 very easy
         if ($level == 'very easy')
-            $cell_count = 63;
+            $cell_count = 80;
+            //$cell_count = 63;
 
         //47-62 easy
         if ($level == 'easy')
@@ -83,6 +84,7 @@ class SudokuController extends Controller
         $puzzle->setCellSize(3);
         $puzzle->generatePuzzle($cell_count);
         $sudoku = $puzzle->getPuzzle();
+        Log::info($sudoku);
         //$puzzle->solve();
        // $solution = $puzzle->getSolution();
 
@@ -97,6 +99,30 @@ class SudokuController extends Controller
             'level' => $level,
         ]);
 
+    }
+
+
+    /**
+     * Display a list of all of the user's task.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function solve(Request $request) {
+
+
+
+        //Log::info($request);
+
+        $puzzle = new \Puzzle();
+        $puzzle->setSolution($request->cell);
+        $puzzle->solve();
+
+        $msg = "Not solved!";
+        if ($puzzle->isSolved())
+            $msg = "Congratulation!";
+
+            return response()->json(array('msg'=> $msg), 200);
     }
 
 

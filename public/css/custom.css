@@ -36,3 +36,7 @@ body {
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     border: 0px;
 }
+
+.readonly {
+    background-color: rgb(235, 235, 228);
+}

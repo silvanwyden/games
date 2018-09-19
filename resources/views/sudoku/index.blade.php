@@ -3,14 +3,13 @@
 @section('content')
 
     <h1>Sudoku</h1>
-
     <form action="/sudoku" method="POST" class="form-horizontal" id="myform">
         {{ csrf_field() }}
 
         <div id="game">
 
 
-            <div class="row" style="margin-left: 0px; margin-bottom: 10px; margin-right: 0px;">
+            <div class="row" style="margin-left: 0px; margin-bottom: 10px; margin-right: 0px; text-align: center;">
                 <div>
                     <div class="btn-group" role="group" aria-label="first">
 
@@ -27,7 +26,8 @@
                             </ul>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Solved <span class="glyphicon glyphicon-question-sign"></span></button>
+
+                        <a class="btn btn-primary" onclick="getMessage()">Solved <span class="glyphicon glyphicon-question-sign"></span></a>
 
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                          @if ($loop->parent->iteration ==3 || $loop->parent->iteration ==6)
                             border-bottom-color: black;
                         @endif
-                             " name="cell[{{ $loop->parent->index }}{{ $loop->index }}]" type="text" maxlength="1" value=
+                             " name="cell[{{ $loop->parent->index }}][{{ $loop->index }}]" type="text" maxlength="1" value=
                         @if ($temp2 > 0)
-                            "{{ $temp2 }}" disabled
+                            "{{ $temp2 }}" readonly class="readonly"
                          @else
                              ""
                          @endif
@@ -57,5 +57,35 @@
         </div>
 
     </form>
+
+
+    <script type="text/javascript">
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        function getMessage(){
+
+            $.ajax({
+                type:'POST',
+                url:'/sudoku-solve',
+                data: $('form').serialize(),
+                success:function(data){
+                    //$("#msg").html(data.msg);
+                    alert(data.msg);
+                }
+            });
+
+
+
+        }
+
+    </script>
+
+
 
 @endsection
