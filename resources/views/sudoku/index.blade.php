@@ -10,7 +10,7 @@
         <div id="game">
 
 
-            <div class="row" style="margin-left: 0px; margin-bottom: 10px;">
+            <div class="row" style="margin-left: 0px; margin-bottom: 10px; margin-right: 0px;">
                 <div>
                     <div class="btn-group" role="group" aria-label="first">
 
