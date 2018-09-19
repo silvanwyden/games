@@ -1,14 +1,25 @@
 @CHARSET "UTF-8";
 
-
+h1 {
+    text-align: center;
+}
 
 body {
     overflow-y: scroll;
 }
 
 #game {
-
-    width: 360px;
+    width: 342px;
+    height: 470px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 55px;
 }
 
 .cell input {
@@ -19,4 +30,8 @@ body {
     text-align: center;
     font-size: 15px;
     border: 1px solid #ccc;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border: 0px;
 }

@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 // Task Routes
 Route::get('/sudoku', 'SudokuController@index');
+Route::post('/sudoku', 'SudokuController@index');
