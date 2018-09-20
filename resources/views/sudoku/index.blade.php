@@ -111,8 +111,10 @@
              $('.highlighter-main').text($num);
 
             $('form input[type="text"]').each(function(){
-                $(this).css('background-color', '');
-                // Do your magic here
+
+                if ($(this).css('background-color') == 'rgb(255, 255, 224)')
+                    $(this).css('background-color', '');
+
                 if (this.value == $num)
                     $(this).css('background-color', 'lightyellow');
             });
@@ -161,6 +163,9 @@
         $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control  input-lg" />';
         $.fn.numpad.defaults.cellTpl = '<td style="border: 0px;"></td>';
         $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-info btn-lg"></button>';
+        $.fn.numpad.defaults.buttonNumberTplWhite =  '<button type="button" class="btn btn-default btn-lg" style="color: transparent;width: 44px;"></button>';
+        $.fn.numpad.defaults.buttonNumberTplRed =  '<button type="button" class="btn btn-danger btn-lg" style="color: transparent;width: 44px;"></button>';
+        $.fn.numpad.defaults.buttonNumberTplGreen =  '<button type="button" class="btn btn-success btn-lg" style="color: transparent;width: 44px;"></button>';
         $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn btn-lg" style="width: 100%;"></button>';
 
 

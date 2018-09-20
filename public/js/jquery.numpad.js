@@ -77,6 +77,11 @@
                         .append($(options.cellTpl).append($(options.buttonNumberTpl).html(9).addClass('numero')))
                 ).append(
                     $(options.rowTpl)
+                        .append($(options.cellTpl).append($(options.buttonNumberTplWhite).html(10).addClass('numero')))
+                        .append($(options.cellTpl).append($(options.buttonNumberTplGreen).html(11).addClass('numero')))
+                        .append($(options.cellTpl).append($(options.buttonNumberTplRed).html(12).addClass('numero')))
+                ).append(
+                    $(options.rowTpl)
                         .append($(options.cellTpl).append($(options.buttonFunctionTpl).html(options.textDone).addClass('done')))
                 );
                 // Create the backdrop of the numpad - an overlay for the main page
@@ -152,7 +157,7 @@
              * @return jQuery object nmpd
              */
             nmpd.setValue = function(value){
-                if (nmpd.display.attr('maxLength') < value.toString().length) value = value.toString().substr(0, nmpd.display.attr('maxLength'));
+                if (nmpd.display.attr('maxLength') < value.toString().length) value = value.toString();
                 nmpd.display.val(value);
                 nmpd.find('.dirty').val('1');
                 nmpd.trigger('numpad.change', [value]);
@@ -168,7 +173,18 @@
                 // If a target element is given, set it's value to the dipslay value of the numpad. Otherwise just hide the numpad
                 if (target){
                     if (target.prop("tagName") == 'INPUT'){
-                        target.val(nmpd.getValue().toString().replace('.', options.decimalSeparator));
+
+                            if (nmpd.getValue().toString() == '10')
+                                target.css('background-color', 'white');
+                            else if (nmpd.getValue().toString() == '11')
+                                target.css('background-color', 'lightgreen');
+                            else if (nmpd.getValue().toString() == '12')
+                                target.css('background-color', '#eca1a6');
+                            else {
+                                target.val(nmpd.getValue().toString().replace('.', options.decimalSeparator));
+                                if ($('.highlighter-main').text() == nmpd.getValue().toString())
+                                    target.css('background-color', 'lightyellow');
+                            }
                     } else {
                         target.html(nmpd.getValue().toString().replace('.', options.decimalSeparator));
                     }
