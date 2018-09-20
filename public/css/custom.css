@@ -35,7 +35,7 @@ h1 {
 }
 
 .readonly {
-    background-color: rgb(235, 235, 228);
+    background-color: #rgb(235, 235, 235);
 }
 
 @media screen and (min-width: 800px) {
