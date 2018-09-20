@@ -28,6 +28,24 @@
                             </ul>
                         </div>
 
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="highlighter-main">0</span>&nbsp;&nbsp;<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a class="highlighter">0</a></li>
+                                <li><a class="highlighter">1</a></li>
+                                <li><a class="highlighter">2</a></li>
+                                <li><a class="highlighter">3</a></li>
+                                <li><a class="highlighter">4</a></li>
+                                <li><a class="highlighter">5</a></li>
+                                <li><a class="highlighter">6</a></li>
+                                <li><a class="highlighter">7</a></li>
+                                <li><a class="highlighter">8</a></li>
+                                <li><a class="highlighter">9</a></li>
+                            </ul>
+                        </div>
+
 
                         <a class="btn btn-primary" onclick="getMessage()">Solved?</a>
 
@@ -87,6 +105,19 @@
 
 
     <script type="text/javascript">
+
+        $(".highlighter").click(function(e){
+             $num = $(this).text();
+             $('.highlighter-main').text($num);
+
+            $('form input[type="text"]').each(function(){
+                $(this).css('background-color', '');
+                // Do your magic here
+                if (this.value == $num)
+                    $(this).css('background-color', 'lightyellow');
+            });
+
+        });
 
         $.ajaxSetup({
             headers: {
