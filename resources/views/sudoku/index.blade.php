@@ -15,7 +15,7 @@
                 <div>
                     <div class="btn-group" role="group" aria-label="first">
 
-                        <a href="/sudoku" class="btn btn-primary">New</a>
+                        <a href="/sudoku" class="btn btn-info">New</a>
 
                         <div class="btn-group" role="group">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,11 +29,13 @@
                         </div>
 
 
-                        <a class="btn btn-primary" onclick="getMessage()">Solved <span class="glyphicon glyphicon-question-sign"></span></a>
+                        <a class="btn btn-primary" onclick="getMessage()">Solved?</a>
 
                     </div>
                 </div>
             </div>
+
+            <div id="game-sudoku">
 
             @foreach ($sudoku as $temp)
                 @foreach ($temp as $temp2)
@@ -55,6 +57,8 @@
                     </div>
                 @endforeach
             @endforeach
+
+            </div>
 
         </div>
 
@@ -101,7 +105,7 @@
                     $(".modal-body").html(data.msg);
                 },
                 error:function(data){
-                    $(".modal-body").html("Error: Please fill out ALL the fields!");
+                    $(".modal-body").html('<i class="glyphicon glyphicon-exclamation-sign"  style="font-size:40px;"></i><br><br> Please fill out ALL fields and check your internet connection!');
                 }
             });
         }
@@ -125,12 +129,11 @@
         $.fn.numpad.defaults.backgroundTpl = '<div class="modal-backdrop in"></div>';
         $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control  input-lg" />';
         $.fn.numpad.defaults.cellTpl = '<td style="border: 0px;"></td>';
-        $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-warning btn-lg"></button>';
+        $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-info btn-lg"></button>';
         $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn btn-lg" style="width: 100%;"></button>';
 
 
         $('.editable').numpad({
-            buttonNumberTpl: '<button type="button" class="btn btn-warning btn-lg"></button>',
             onChange: function(){
                 $('.done').click();
             },
