@@ -61,8 +61,7 @@ class SudokuController extends Controller
 
         //63-82 very easy
         if ($level == 'very easy')
-            $cell_count = 80;
-            //$cell_count = 63;
+            $cell_count = 63;
 
         //47-62 easy
         if ($level == 'easy')
@@ -70,15 +69,15 @@ class SudokuController extends Controller
 
         //33-46 normal
         if ($level == 'normal')
-            $cell_count = 30;
+            $cell_count = 34;
 
         //17-32 difficult
         if ($level == 'difficult')
-            $cell_count = 20;
+            $cell_count = 25;
 
         //0-16 very difficult
         if ($level == 'very difficult')
-            $cell_count = 10;
+            $cell_count = 20;
 
         $puzzle = new \Puzzle();
         $puzzle->setCellSize(3);
