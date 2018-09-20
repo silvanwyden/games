@@ -83,14 +83,9 @@ class SudokuController extends Controller
         $puzzle = new \Puzzle();
         $puzzle->setCellSize(3);
         $puzzle->generatePuzzle($cell_count);
+        if (!$puzzle->isSolvable())
+		$puzzle->generatePuzzle($cell_count);
         $sudoku = $puzzle->getPuzzle();
-        Log::info($sudoku);
-        //$puzzle->solve();
-       // $solution = $puzzle->getSolution();
-
-
-
-
 
         return view('sudoku.index', [
             'name' => 'testname',
@@ -111,16 +106,16 @@ class SudokuController extends Controller
     public function solve(Request $request) {
 
 
-
+	//sleep(1);
         //Log::info($request);
 
         $puzzle = new \Puzzle();
         $puzzle->setSolution($request->cell);
         $puzzle->solve();
 
-        $msg = "Not solved!";
+        $msg = '<i class="glyphicon glyphicon-thumbs-down"  style="font-size:40px;"></i><br><br> I\'m sorry, but your solution is wrong. Please try again!';
         if ($puzzle->isSolved())
-            $msg = "Congratulation!";
+            $msg = '<i class="glyphicon glyphicon-thumbs-up"  style="font-size:40px;"></i><br><br> Congratulation! Sudoku is solved!';
 
             return response()->json(array('msg'=> $msg), 200);
     }
