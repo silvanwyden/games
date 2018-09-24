@@ -31,7 +31,7 @@
             $(".game").on("tap",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 38;
-                $(".game").trigger(e);
+                $(".tetris").trigger(e);
             });
         });
 
@@ -39,7 +39,7 @@
             $(".game").on("swipeleft",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 37;
-                $(".game").trigger(e);
+                $(".tetris").trigger(e);
             });
         });
 
@@ -47,7 +47,7 @@
             $(".game").on("swiperight",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 39;
-                $(".game").trigger(e);
+                $(".tetris").trigger(e);
             });
         });
 
