@@ -28,7 +28,7 @@
 
 
         $(document).on("pagecreate", function(){
-            $(".game").on("tap",function(){
+            $(".tetris").on("tap",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 38;
                 $(".tetris").trigger(e);
@@ -36,7 +36,7 @@
         });
 
         $(document).on("pagecreate", function(){
-            $(".game").on("swipeleft",function(){
+            $(".tetris").on("swipeleft",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 37;
                 $(".tetris").trigger(e);
@@ -44,7 +44,7 @@
         });
 
         $(document).on("pagecreate", function(){
-            $(".game").on("swiperight",function(){
+            $(".tetris").on("swiperight",function(){
                 var e = jQuery.Event("keydown");
                 e.keyCode = 39;
                 $(".tetris").trigger(e);
