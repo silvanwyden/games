@@ -49,7 +49,9 @@
                     <li class="{{ Request::is( 'sudoku*') ? 'active' : '' }}">
                         <a href="/sudoku">Sudoku <span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a href="/">next Game will come soon</a></li>
+                    <li class="{{ Request::is( 'tetris*') ? 'active' : '' }}">
+                        <a href="/tetris">Tetris <span class="sr-only">(current)</span></a>
+                    </li>
                 </ul>
             </div>
 

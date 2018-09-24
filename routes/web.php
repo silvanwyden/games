@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Task Routes
+// Sudoku Routes
 Route::get('/sudoku', 'SudokuController@index');
 Route::post('/sudoku-solve', 'SudokuController@solve');
+
+// Tetris Routes
+Route::get('/tetris', function () {
+    return view('tetris');
+});
