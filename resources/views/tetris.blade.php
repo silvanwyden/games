@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="/js/blockrain/blockrain.css">
 
 
-    <div class="game" style="width: 330px; height:500px; margin: auto;"></div>
+    <div class="tetris" style="width: 330px; height:500px; margin: auto;"></div>
 
     <!-- jQuery and Blockrain.js -->
     <script src="/js/blockrain/blockrain.jquery.libs.js"></script>
     <script src="/js/blockrain/blockrain.jquery.src.js"></script>
     <script src="/js/blockrain/blockrain.jquery.themes.js"></script>
     <script>
-        $('.game').blockrain( {
+        $('.tetris').blockrain( {
             blockWidth: 10,
             theme: 'gameboy',
         });
