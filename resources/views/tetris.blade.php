@@ -21,5 +21,36 @@
             theme: 'gameboy',
         });
     </script>
+    
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script>
+
+
+        $(document).on("pagecreate", function(){
+            $(".game").on("tap",function(){
+                var e = jQuery.Event("keydown");
+                e.keyCode = 38;
+                $(".game").trigger(e);
+            });
+        });
+
+        $(document).on("pagecreate", function(){
+            $(".game").on("swipeleft",function(){
+                var e = jQuery.Event("keydown");
+                e.keyCode = 37;
+                $(".game").trigger(e);
+            });
+        });
+
+        $(document).on("pagecreate", function(){
+            $(".game").on("swiperight",function(){
+                var e = jQuery.Event("keydown");
+                e.keyCode = 39;
+                $(".game").trigger(e);
+            });
+        });
+
+    </script>
 
 @endsection
